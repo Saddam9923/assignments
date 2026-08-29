@@ -8,40 +8,40 @@ function loanApplication(customerName: string,
     debtToIncomeRatio: number) {
 
     // Step 1: Credit Score and Income
-    if (creditScore > 750) {
+    if (creditScore >= 750) {
         console.log("the customer loan is automatically approved.");
     }
-    else if (creditScore >= 650 && creditScore <= 750) {
+    else if (creditScore >= 650 && creditScore < 750) {
         console.log("The loan application is additional checks are performed.");
     }
 
     else if (creditScore < 650) {
-        console.log("the loan is denied")
+        console.log("loan is denied due to credit scroe is low")
     }
     // Step 2: Income
     if (income >= 50000) {
-        console.log("the loan to be considered.");
+        console.log("the customer’s income must be at least $50,000 the loan to be considered.");
     }
 
     // Step 3: Employment   
     if (!employmentStatus) {
-        console.log("If the customer is unemployed, the loan is denied.")
+        console.log("The loan is denied because of customer is unemployed")
     }
 
     // Step 4: Debt-to-Income Ratio
     if (debtToIncomeRatio < 40) {
-        console.log("the loan is approved")
+        console.log("The DTI ratio is less than 40%, the loan is approved.")
     }
-    else if (debtToIncomeRatio > 40) {
-        console.log("the loan is denied.");
+    else if (debtToIncomeRatio >= 40) {
+        console.log("The DTI ratio is 40% or greater, the loan is denied.");
     }
 }
 // Customer Data
-let customerName = "John Doe";
-let creditScore = 720;
+let customerName = "Saddam";
+let creditScore = 750;
 let income = 55000.0;
 let employmentStatus = true;
-let debtToIncomeRatio = 35.0;
+let debtToIncomeRatio = 39.0;
 
 let result = loanApplication(customerName, creditScore, income, employmentStatus, debtToIncomeRatio);
 console.log(result);
